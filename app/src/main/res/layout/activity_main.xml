@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- Grid Container for Multi-Camera View -->
+    <GridLayout
+        android:id="@+id/grid_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="6dp"
+        android:visibility="gone" />
+
+    <!-- Single Fullscreen Player Container -->
+    <FrameLayout
+        android:id="@+id/player_single_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/player_single"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:use_controller="false"
+            app:surface_type="texture_view" />
+
+        <!-- Fullscreen Retry / Offline Overlay -->
+        <LinearLayout
+            android:id="@+id/error_single_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingStart="42dp"
+            android:paddingEnd="42dp"
+            android:paddingTop="32dp"
+            android:paddingBottom="32dp"
+            android:background="@drawable/bg_error_card"
+            android:elevation="8dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:src="@drawable/ic_warning_triangle"
+                android:tint="#FF5252"
+                android:contentDescription="Camera Error" />
+
+            <TextView
+                android:id="@+id/tv_single_error_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Camera Unreachable" />
+
+            <TextView
+                android:id="@+id/tv_single_error_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textColor="#B0BEC5"
+                android:textSize="15sp"
+                android:text="Host unreachable" />
+
+            <!-- Retry Status Box -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:background="@drawable/bg_retry_pill"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ProgressBar
+                    android:id="@+id/spinner_single_retry"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:indeterminate="true" />
+
+                <TextView
+                    android:id="@+id/tv_single_retry_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:textColor="#FFB74D"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Retrying in 4s... (Attempt #1)" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Top Status Overlay (HUD) -->
+    <LinearLayout
+        android:id="@+id/hud_overlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="20dp"
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="#D015111B"
+        android:orientation="horizontal"
+        android:elevation="12dp">
+
+        <TextView
+            android:id="@+id/tv_cam_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#00E5FF"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:text="CAMERA 1 (LIVE)" />
+
+        <TextView
+            android:id="@+id/tv_cam_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="#E0E0E0"
+            android:textSize="13sp"
+            android:text="[OK] Fullscreen / Grid • [◀ ▶] Switch • [BACK] Exit" />
+    </LinearLayout>
+
+    <!-- Loading Spinner -->
+    <ProgressBar
+        android:id="@+id/loading_spinner"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_gravity="center"
+        android:indeterminate="true" />
+
+</FrameLayout>

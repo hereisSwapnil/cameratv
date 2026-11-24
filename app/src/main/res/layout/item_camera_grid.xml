@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cell_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="4dp"
+    android:focusable="false"
+    android:clickable="true"
+    android:foreground="@drawable/cam_focus_border">
+
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/player_cell"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:use_controller="false"
+        app:surface_type="texture_view" />
+
+    <!-- Top Label Header with Name, Audio Indicator & Status Badge -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#B3000000"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:id="@+id/tv_cell_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif-medium"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="Camera" />
+
+        <!-- Audio Indicator Badge -->
+        <LinearLayout
+            android:id="@+id/badge_audio_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:background="@drawable/bg_badge_audio"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_volume_up"
+                android:tint="#00E5FF"
+                android:contentDescription="Audio" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textColor="#00E5FF"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:text="AUDIO" />
+        </LinearLayout>
+
+        <!-- Offline Badge -->
+        <TextView
+            android:id="@+id/tv_cell_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:background="@drawable/bg_badge_offline"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:text="OFFLINE"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- Normal Loading Spinner -->
+    <ProgressBar
+        android:id="@+id/spinner_cell"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:indeterminate="true" />
+
+    <!-- Grid Cell Error / Retry Overlay -->
+    <LinearLayout
+        android:id="@+id/error_cell_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:background="@drawable/bg_error_card"
+        android:elevation="6dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_warning_triangle"
+            android:tint="#FF5252"
+            android:contentDescription="Error" />
+
+        <TextView
+            android:id="@+id/tv_cell_error_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Camera Unreachable" />
+
+        <TextView
+            android:id="@+id/tv_cell_error_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="#B0BEC5"
+            android:textSize="12sp"
+            android:text="Host unreachable" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@drawable/bg_retry_pill"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:indeterminate="true" />
+
+            <TextView
+                android:id="@+id/tv_cell_retry_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="#FFB74D"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Retrying in 4s..." />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

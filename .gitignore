@@ -1,0 +1,79 @@
+# ==========================================
+# Private / Sensitive Configs (NEVER COMMIT)
+# ==========================================
+cameras.json
+cameras_*.json
+*.cameras.json
+private/
+secrets/
+.private/
+*.env
+.env
+*.local
+!cameras.sample.json
+
+# ==========================================
+# Android & Gradle Build Artifacts
+# ==========================================
+*.iml
+.gradle/
+local.properties
+**/local.properties
+/.idea/
+.idea/
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/assetWizardSettings.xml
+.idea/shelf/
+.idea/navEditor.xml
+*.iws
+*.ipr
+
+# VS Code
+.vscode/
+
+# Built application files & directories
+build/
+**/build/
+app/build/
+bin/
+gen/
+out/
+*.apk
+*.ap_
+*.aab
+
+# Java / JVM files
+*.class
+*.dex
+
+# Keystore files
+*.jks
+*.keystore
+*.key
+*.pem
+
+# External native build folder generated in Android Studio
+.externalNativeBuild/
+.cxx/
+
+# Captures / profiling
+captures/
+.navigation/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor backup & temp files
+*.swp
+*.swo
+*~
+*.orig
