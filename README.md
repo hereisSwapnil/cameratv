@@ -11,10 +11,10 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="MIT License">
-  <img src="https://img.shields.io/badge/Android%20TV-8.0+-3DDC84.svg?style=flat-square&logo=android&logoColor=white" alt="Android TV 8.0+">
+  <img src="https://img.shields.io/badge/Android_TV-8.0+-3DDC84.svg?style=flat-square&logo=android&logoColor=white" alt="Android TV 8.0+">
   <img src="https://img.shields.io/badge/Media3-ExoPlayer-FF6F00.svg?style=flat-square" alt="Media3 ExoPlayer">
-  <img src="https://img.shields.io/badge/RTSP-Low%20Latency-blueviolet.svg?style=flat-square" alt="RTSP Low Latency">
-  <img src="https://img.shields.io/badge/Privacy-100%25%20Local-success.svg?style=flat-square" alt="100% Local">
+  <img src="https://img.shields.io/badge/RTSP-Low_Latency-blueviolet.svg?style=flat-square" alt="RTSP Low Latency">
+  <img src="https://img.shields.io/badge/Privacy-100%25_Local-success.svg?style=flat-square" alt="100% Local">
 </p>
 
 ## ✨ The Story Behind CameraTV
